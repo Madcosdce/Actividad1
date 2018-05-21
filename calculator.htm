@@ -1,0 +1,307 @@
+<html>
+<head>
+	<title>Calculator</title>
+<script>
+
+
+window.onload = function() { document.onkeypress = mostrarInformacionCaracter;}
+
+function mostrarInformacionCaracter(evObject) {
+
+                var msg = ''; var elCaracter = String.fromCharCode(evObject.which);
+
+		if 	(evObject.which == 43) {plus();}
+		else if (evObject.which == 45) {less();}
+		else if (evObject.which == 42) {mult();}
+		else if (evObject.which == 47) {div();}
+		else if (evObject.which == 49) {bt1();}
+		else if (evObject.which == 50) {bt2();}
+		else if (evObject.which == 51) {bt3();}
+		else if (evObject.which == 52) {bt4();}
+		else if (evObject.which == 53) {bt5();}
+		else if (evObject.which == 54) {bt6();}
+		else if (evObject.which == 55) {bt7();}
+		else if (evObject.which == 56) {bt8();}
+		else if (evObject.which == 57) {bt9();}
+		else if (evObject.which == 13) {equal();}
+		else if (evObject.which == 48) {bt0();}
+		else if (evObject.which == 46) {btP();}
+		else if (evObject.which == 27) {ac();}
+		else if (evObject.which == 83 || evObject.which == 115) {Show();}
+		else if (evObject.which == 72 || evObject.which == 104) {Hide();}
+		else 
+			alert("Agregue sólo números :/");
+}
+
+
+function plus()
+{ 
+	var tbx = document.getElementById("tbxValue");
+	var tby = document.getElementById("memory");
+	var flag = document.getElementById("flagPlus");
+	var flagP = document.getElementById("flagPoint");
+	var fp = parseFloat(flagP.value);
+	flagP.value = "0";
+	var f = 1;
+	flag.value = f.toString();
+	tby.value = tbx.value;
+	tbx.value = "0";
+}
+function less()
+{ 
+	var tbx = document.getElementById("tbxValue");
+	var tby = document.getElementById("memory");
+	var flag = document.getElementById("flagLess");
+	var flagP = document.getElementById("flagPoint");
+	var fp = parseFloat(flagP.value);
+	flagP.value = "0";
+	var f = 1;
+	flag.value = f.toString();
+	tby.value = tbx.value;
+	tbx.value = "0";
+}
+function mult()
+{ 
+	var tbx = document.getElementById("tbxValue");
+	var tby = document.getElementById("memory");
+	var flag = document.getElementById("flagMult");
+	var flagP = document.getElementById("flagPoint");
+	var fp = parseFloat(flagP.value);
+	flagP.value = "0";
+	var f = 1;
+	flag.value = f.toString();
+	tby.value = tbx.value;
+	tbx.value = "0";
+}
+function div()
+{ 
+	var tbx = document.getElementById("tbxValue");
+	var tby = document.getElementById("memory");
+	var flag = document.getElementById("flagDiv");
+	var flagP = document.getElementById("flagPoint");
+	var fp = parseFloat(flagP.value);
+	flagP.value = "0";
+	var f = 1;
+	flag.value = f.toString();
+	tby.value = tbx.value;
+	tbx.value = "0";
+}
+function equal()
+{ 
+	var tbx = document.getElementById("tbxValue");
+	var tby = document.getElementById("memory");
+	var tbz = document.getElementById("result");
+	var flag1 = document.getElementById("flagPlus");
+	var flag2 = document.getElementById("flagLess");
+	var flag3 = document.getElementById("flagMult");
+	var flag4 = document.getElementById("flagDiv");
+	var flag5 = document.getElementById("flagShow");
+	var flagP = document.getElementById("flagPoint");
+	var fp = parseFloat(flagP.value);
+	var f1 = parseFloat(flag1.value);
+	var f2 = parseFloat(flag2.value);
+	var f3 = parseFloat(flag3.value);
+	var f4 = parseFloat(flag4.value);
+	var f5 = parseFloat(flag5.value);
+	var y = parseFloat(tbx.value);
+	var x = parseFloat(tby.value);
+	var result = 0;
+	if (f1 == 1) result = x+y;
+	if (f2 == 1) result = x-y;
+	if (f3 == 1) result = x*y;
+	if (f4 == 1) result = x/y;
+
+	if(f5 == 1)	tbx.value = result;
+	if(f5 == 0) {tbz.value = result; tbx.value="De Click en mostrar"}
+
+	flag1.value = "0";
+	flag2.value = "0";
+	flag3.value = "0";
+	flag4.value = "0";
+	tby.value = "0";
+	flagP.value = "0";
+}
+
+function ac()
+{
+	var tbx = document.getElementById("tbxValue");
+	tbx.value = 0;
+}
+
+function bt1()
+{	var tbx = document.getElementById("tbxValue");	tbx.value += 1; }
+function bt2()
+{	var tbx = document.getElementById("tbxValue");	tbx.value += 2; }
+function bt3()
+{	var tbx = document.getElementById("tbxValue");	tbx.value += 3; }
+function bt4()
+{	var tbx = document.getElementById("tbxValue");	tbx.value += 4; }
+function bt5()
+{	var tbx = document.getElementById("tbxValue");	tbx.value += 5; }
+function bt6()
+{	var tbx = document.getElementById("tbxValue");	tbx.value += 6; }
+function bt7()
+{	var tbx = document.getElementById("tbxValue");	tbx.value += 7; }
+function bt8()
+{	var tbx = document.getElementById("tbxValue");	tbx.value += 8; }
+function bt9()
+{	var tbx = document.getElementById("tbxValue");	tbx.value += 9; }
+function bt0()
+{	var tbx = document.getElementById("tbxValue");	tbx.value += 0; }
+function btP()
+{	
+	var tbx = document.getElementById("tbxValue");	
+	var flagP = document.getElementById("flagPoint");
+	var fp = parseFloat(flagP.value);
+
+	if( fp == 0)
+	{
+		tbx.value += "."; 
+		flagP.value = 1;
+	}
+	else
+		return 0;
+}
+
+function Show()
+{
+	var tbx = document.getElementById("tbxValue");
+	var flag = document.getElementById("flagShow");
+	var result = document.getElementById("result");
+	var f = parseFloat(flag.value);
+	var r = parseFloat(result.value);
+	f = 1;
+	flag.value = f.toString();
+	tbx.value = result.value;
+}
+
+function Hide()
+{
+	var tbx = document.getElementById("tbxValue");
+	var flag = document.getElementById("flagShow");
+	var result = document.getElementById("result");
+	var f = parseFloat(flag.value);
+	var r = parseFloat(result.value);
+	f = 0;
+	flag.value = f.toString();
+	result.value = tbx.value;
+	tbx.value = "De click en mostrar";
+}
+
+</script>
+</head>
+<body style="background-color:#000FFF">
+<input type="hidden" name="memory" value ="0" id = "memory" />
+<input type="hidden" name="result" value ="0" id = "result" />
+<input type="hidden" name="flagPlus" value ="0" id = "flagPlus" />
+<input type="hidden" name="flagLess" value ="0" id = "flagLess" />
+<input type="hidden" name="flagMult" value ="0" id = "flagMult" />
+<input type="hidden" name="flagDiv" value ="0" id = "flagDiv" />
+<input type="hidden" name="flagShow" value ="1" id = "flagShow" />
+<input type="hidden" name="flagPoint" value ="0" id = "flagPoint" />
+
+<img src="try2.jpg" alt = "MathKids" tittle = "MathKids" style = "width:100%; height:30%"; align="right"/><br></br>
+
+<table style="height:70%; width:100%">
+<tr>
+	<td>
+<table style="background-color:#B9A61A">
+	
+	<tr>
+		<td>
+		<table>
+			<tr>
+				<td>
+					<input type="button" style="width:130px; height:30; background-color:#6FF9B9" value="Mostrar resultados" onclick="Show()" /> 
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" style="width:130px; height:30; background-color:#2BD9B9" value="Ocultar" onclick="Hide()" />
+
+				</td>
+			</tr>
+		</table>
+
+		</td>
+		<td>
+			<input type="text" id="tbxValue" style="width:120px;height:65px; text-align:right; background-color:#01DF01" name="tbxValue" value = "" />
+		</td>
+	</tr>
+
+	<tr>
+		
+	</tr>
+</table>
+
+<table style="background-color:#000000">
+	<tr>
+		<td><input type="button" style="height:60px; width:62" value="1" onclick="bt1()" /></td>
+		<td><input type="button" style="height:60px; width:62" value="2" onclick="bt2()" /></td>
+		<td><input type="button" style="height:60px; width:62" value="3" onclick="bt3()" /></td>
+		<td><input type="button" style="height:60px; width:62; font-size: 2em" value="/" onclick="div()" /></td>
+	</tr>
+	<tr>
+		<td valign="top"><input type="button" style="height:62px; width:60" value="4" onclick="bt4()" /></td>
+		<td valign="top"><input type="button" style="height:62px; width:60" value="5" onclick="bt5()" /></td>
+		<td valign="top"><input type="button" style="height:62px; width:60" value="6" onclick="bt6()" /></td>
+		<td valign="top"><input type="button" style="height:62px; width:60; font-size: 2em" value="X" onclick="mult()" /></td>
+	</tr>
+	<tr>
+		<td valign="top"><input type="button" style="height:62px; width:60" value="7" onclick="bt7()" /></td>
+		<td valign="top"><input type="button" style="height:62px; width:60" value="8" onclick="bt8()" /></td>
+		<td valign="top"><input type="button" style="height:62px; width:60" value="9" onclick="bt9()"/></td>
+		<td valign="top"><input type="button" style="height:62px; width:60; font-size: 2em" value="-" onclick="less()" /></td>
+	</tr>
+	<tr>
+		<td valign="top"><input type="button" style="height:62px; width:60" value="0"  onclick="bt0()"/></td>
+		<td valign="top"><input type="button" style="height:62px; width:60; font-size: 2em" value="." onclick="btP()"/></td>
+		<td valign="top"><input type="button" style="height:62px; width:60; font-size: 2em" value="=" onclick="equal()" /></td>
+		<td valign="top"><input type="button" style="height:62px; width:60; font-size: 2em" value="+" onclick="plus()" /></td>
+	
+	</tr>
+</table>
+	<table style="background-color:#000000">
+		<tr>
+		<td valign="top"><input type="button" style="height:40px; width:260px; font-size: 2em" value="AC" onclick="ac()" /></td>
+		</tr>
+	</table>
+		
+
+</td>
+<td  align="left">
+	<table style="background-color:#FFC0C0; color:#009000">
+	<tr>
+		<td>
+			Esta es la opcion 1
+		</td>
+	</tr><tr>
+		<td>
+			<b>Aprende a usarlo</b><br></br>
+			<i>La calculadora se usa ....</i>
+		</td>
+	</tr>
+	</table>
+
+</span>
+	</td>
+	<td  align="left">
+	<table style="background-color:#FFC0C0; color:#009000">
+	<tr>
+		<td>
+			Esta es la opcion 2
+		</td>
+	</tr><tr>
+		<td>
+			<b>Datos para contactarnos</b><br></br>
+			<i>en este apartado.....</i>
+		</td>
+	</tr>
+	</table>
+
+</span>
+	</td>
+</tr>
+</table>
+</body>
+</html>
